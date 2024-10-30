@@ -26,4 +26,3 @@ describe('testar signin funktionen', () => {
     expect(signin('TestUser', '')).toBe('Användarnamn och lösenord krävs.')
   })
 })
-
