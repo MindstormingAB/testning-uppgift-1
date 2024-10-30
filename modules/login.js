@@ -1,16 +1,16 @@
-const users = require('./userData');
+const users = require('./userData')
 
-const login = (username, password) => {
+const logIn = (username, password) => {
   if (!username || !password) {
-    return 'Användarnamn och lösenord krävs.';
+    return 'Användarnamn och lösenord krävs.'
   }
 
-  const user = users.find(u => u.username === username);
+  const user = users.find(u => u.username === username)
   if (user && user.password === password) {
-    return true;
+    return true
   } else {
-    return 'Felaktigt användarnamn eller lösenord.';
+    return 'Felaktigt användarnamn eller lösenord.'
   }
 }
 
-module.exports = login;
+module.exports = logIn
