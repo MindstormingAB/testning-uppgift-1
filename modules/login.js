@@ -1,4 +1,4 @@
-import users from './userData.js';
+const users = require('./userData');
 
 const login = (username, password) => {
   if (!username || !password) {
@@ -13,4 +13,4 @@ const login = (username, password) => {
   }
 }
 
-export default login;
+module.exports = login;

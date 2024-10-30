@@ -1,4 +1,4 @@
-import User from './User.js';
+const User = require('./User');
 
 const users = [
   new User('Alice Adamsson', 'kYCpASSBAO8Zn2G'),
@@ -8,4 +8,4 @@ const users = [
   new User('Eva Elofsson', 'lS6q5gO9ULprHBN'),
 ];
 
-export default users;
+module.exports = users;

@@ -1,9 +1,9 @@
-import { createInterface } from 'readline';
-import login from './modules/Login.js';
-import createUser from './modules/createUser.js';
-import changePassword from './modules/changePassword.js';
+const readline = require('readline');
+const login = require('./modules/Login');
+const { createUser } = require('./modules/createUser');
+const changePassword = require('./modules/changePassword');
 
-const rl = createInterface({
+const rl = readline.createInterface({
   input: process.stdin,
   output: process.stdout
 });

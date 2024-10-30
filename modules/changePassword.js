@@ -1,5 +1,5 @@
-import users from './userData.js';
-import { isPasswordSecure } from './createUser.js';
+const users = require('./userData');
+const { isPasswordSecure } = require('./createUser');
 
 const changePassword = (username, oldPassword, newPassword) => {
   const user = users.find(u => u.username === username);
@@ -24,4 +24,4 @@ const changePassword = (username, oldPassword, newPassword) => {
   return true;
 }
 
-export default changePassword;
+module.exports = changePassword;

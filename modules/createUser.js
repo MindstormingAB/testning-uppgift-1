@@ -1,7 +1,7 @@
-import User from './User.js';
-import users from './userData.js';
+const User = require('./User');
+const users = require('./userData');
 
-export const isPasswordSecure = (password) => {
+const isPasswordSecure = (password) => {
   const regex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
   return regex.test(password);
 }
@@ -20,4 +20,4 @@ const createUser = (username, password) => {
   return newUser;
 }
 
-export default createUser;
+module.exports = { createUser, isPasswordSecure };
