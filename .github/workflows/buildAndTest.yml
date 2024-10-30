@@ -8,7 +8,7 @@ jobs:
 
     strategy:
       matrix:
-        node-version: [20.x, 18.x, 16.x]
+        node-version: [20.x]
 
     steps:
       - name: Checkout of code from repo
@@ -19,6 +19,9 @@ jobs:
         with:
           node-version: ${{ matrix.node-version }}
 
+      - name: list files in modules directory
+        run: ls -la modules
+      
       - name: npm install
         run: npm ci
         
