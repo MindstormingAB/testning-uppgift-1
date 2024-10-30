@@ -1,7 +1,7 @@
-import User from './User';
-import users from './userData';
+import User from './User.js';
+import users from './userData.js';
 
-const isPasswordSecure = (password) => {
+export const isPasswordSecure = (password) => {
   const regex = /^(?=.*[A-Z])(?=.*\d).{8,}$/;
   return regex.test(password);
 }

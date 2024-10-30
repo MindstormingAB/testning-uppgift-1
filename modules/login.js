@@ -1,4 +1,4 @@
-import users from './userData';
+import users from './userData.js';
 
 const login = (username, password) => {
   if (!username || !password) {

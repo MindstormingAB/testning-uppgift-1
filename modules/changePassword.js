@@ -1,5 +1,5 @@
-import users from './userData';
-import { isPasswordSecure } from './createUser';
+import users from './userData.js';
+import { isPasswordSecure } from './createUser.js';
 
 const changePassword = (username, oldPassword, newPassword) => {
   const user = users.find(u => u.username === username);
