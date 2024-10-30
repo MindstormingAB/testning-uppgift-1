@@ -1,5 +1,5 @@
 const readline = require('readline')
-const logIn = require('./modules/logIn')
+const signin = require('./modules/signin')
 const { createUser } = require('./modules/createUser')
 const changePassword = require('./modules/changePassword')
 
@@ -18,7 +18,7 @@ const mainMenu = () => {
   rl.question('Ditt val: ', (answer) => {
     switch (answer) {
       case '1':
-        promptLogin()
+        promptSignin()
         break
       case '2':
         promptCreateUser()
@@ -36,10 +36,10 @@ const mainMenu = () => {
   })
 }
 
-const promptLogin = () => {
+const promptSignin = () => {
   rl.question('Användarnamn: ', (username) => {
     rl.question('Lösenord: ', (password) => {
-      const result = logIn(username, password)
+      const result = signin(username, password)
       console.log(result === true ? 'Inloggning lyckades!' : result)
       mainMenu()
     })

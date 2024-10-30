@@ -1,6 +1,6 @@
 const users = require('./userData')
 
-const logIn = (username, password) => {
+const signin = (username, password) => {
   if (!username || !password) {
     return 'Användarnamn och lösenord krävs.'
   }
@@ -13,4 +13,4 @@ const logIn = (username, password) => {
   }
 }
 
-module.exports = logIn
+module.exports = signin
