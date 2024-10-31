@@ -12,7 +12,7 @@ describe('testar changePassword funktionen', () => {
     expect(result).toBe(true)
     expect(users[0].password).toBe('NewPass1')
   })
-  
+
   test('Försök att ändra lösenord utan användarnamn', () => {
     const result = changePassword('', 'OldPass1', 'NewPass1')
     expect(result).toBe('Användarnamn, gammalt lösenord och nytt lösenord krävs.')
