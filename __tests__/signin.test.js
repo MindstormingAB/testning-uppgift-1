@@ -18,11 +18,21 @@ describe('testar signin funktionen', () => {
     )
   })
 
-  it('Inloggning utan användarnamn', () => {
+  it('Misslyckad inloggning med fel användarnamn', () => {
+    expect(signin('Testuser', 'Password1')).toBe(
+      'Felaktigt användarnamn eller lösenord.'
+    )
+  })
+
+  it('Misslyckad inloggning utan några uppgifter', () => {
+    expect(signin('', '')).toBe('Användarnamn och lösenord krävs.')
+  })
+
+  it('Misslyckad inloggning utan användarnamn', () => {
     expect(signin('', 'Password1')).toBe('Användarnamn och lösenord krävs.')
   })
 
-  it('Inloggning utan lösenord', () => {
+  it('Misslyckad inloggning utan lösenord', () => {
     expect(signin('TestUser', '')).toBe('Användarnamn och lösenord krävs.')
   })
 })

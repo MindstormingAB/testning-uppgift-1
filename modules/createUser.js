@@ -7,6 +7,10 @@ const isPasswordSecure = (password) => {
 }
 
 const createUser = (username, password) => {
+  if (!username || !password) {
+    return 'Användarnamn och lösenord krävs.'
+  }
+
   if (users.find(u => u.username === username)) {
     return 'Användarnamnet används redan.'
   }

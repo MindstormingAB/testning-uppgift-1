@@ -12,9 +12,34 @@ describe('testar changePassword funktionen', () => {
     expect(result).toBe(true)
     expect(users[0].password).toBe('NewPass1')
   })
+  
+  test('Försök att ändra lösenord utan användarnamn', () => {
+    const result = changePassword('', 'OldPass1', 'NewPass1')
+    expect(result).toBe('Användarnamn, gammalt lösenord och nytt lösenord krävs.')
+  })
 
-  test('Försök att ändra lösenord på obefintlig användare', () => {
+  test('Försök att ändra lösenord utan gammalt lösenord', () => {
+    const result = changePassword('TestUser', '', 'NewPass1')
+    expect(result).toBe('Användarnamn, gammalt lösenord och nytt lösenord krävs.')
+  })
+
+  test('Försök att ändra lösenord utan nytt lösenord', () => {
+    const result = changePassword('TestUser', 'OldPass1', '')
+    expect(result).toBe('Användarnamn, gammalt lösenord och nytt lösenord krävs.')
+  })
+
+  test('Försök att ändra lösenord på okänd användare', () => {
     const result = changePassword('UnknownUser', 'OldPass1', 'NewPass1')
+    expect(result).toBe('Användaren finns inte.')
+  })
+
+  test('Försök att ändra lösenord rätt användarnamn men med gemener', () => {
+    const result = changePassword('testuser', 'OldPass1', 'NewPass1')
+    expect(result).toBe('Användaren finns inte.')
+  })
+
+  test('Försök att ändra lösenord rätt användarnamn men med extra mellanslag', () => {
+    const result = changePassword('Test User', 'OldPass1', 'NewPass1')
     expect(result).toBe('Användaren finns inte.')
   })
 
@@ -30,8 +55,18 @@ describe('testar changePassword funktionen', () => {
     )
   })
 
-  test('Försök att ändra till osäkert nytt lösenord', () => {
-    const result = changePassword('TestUser', 'OldPass1', 'short')
+  test('Försök att ändra till nytt lösenord som är för kort', () => {
+    const result = changePassword('TestUser', 'OldPass1', 'Short1')
+    expect(result).toBe('Det nya lösenordet uppfyller inte säkerhetskraven.')
+  })
+
+  test('Försök att ändra till nytt lösenord utan stor bokstav', () => {
+    const result = changePassword('TestUser', 'OldPass1', 'newpass1')
+    expect(result).toBe('Det nya lösenordet uppfyller inte säkerhetskraven.')
+  })
+
+  test('Försök att ändra till nytt lösenord utan siffra', () => {
+    const result = changePassword('TestUser', 'OldPass1', 'NewPassw')
     expect(result).toBe('Det nya lösenordet uppfyller inte säkerhetskraven.')
   })
 })

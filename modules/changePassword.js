@@ -2,6 +2,10 @@ const users = require('./userData')
 const { isPasswordSecure } = require('./createUser')
 
 const changePassword = (username, oldPassword, newPassword) => {
+  if (!username || !oldPassword || !newPassword) {
+    return 'Användarnamn, gammalt lösenord och nytt lösenord krävs.'
+  }
+
   const user = users.find(u => u.username === username)
 
   if (!user) {
